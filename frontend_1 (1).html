@@ -1,0 +1,275 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriMarket - Producer & Marketplace Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-emerald-900 text-white flex flex-col shrink-0 hidden md:flex">
+      <div class="p-6 border-b border-emerald-800 flex items-center gap-3">
+        <i data-lucide="sprout" class="w-8 h-8 text-emerald-400"></i>
+        <span class="text-xl font-bold tracking-wide">AgriMarket</span>
+      </div>
+      <nav class="flex-1 p-4 space-y-1">
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-emerald-800 text-white font-medium">
+          <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-emerald-800/50 text-emerald-100 font-medium transition">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i> Marketplace
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-emerald-800/50 text-emerald-100 font-medium transition">
+          <i data-lucide="boxes" class="w-5 h-5"></i> Inventory
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-emerald-800/50 text-emerald-100 font-medium transition">
+          <i data-lucide="truck" class="w-5 h-5"></i> Logistics
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-emerald-800/50 text-emerald-100 font-medium transition">
+          <i data-lucide="trending-up" class="w-5 h-5"></i> Price Trends
+        </a>
+      </nav>
+      <div class="p-4 border-t border-emerald-800 text-xs text-emerald-300">
+        AgriMarket Portal v2.4
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+     
+      <!-- Top Navbar -->
+      <header class="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+        <h1 class="text-xl font-bold text-slate-800">Agricultural Market Overview</h1>
+        <div class="flex items-center gap-4">
+          <button class="p-2 text-slate-500 hover:text-emerald-600 rounded-full hover:bg-slate-100 transition">
+            <i data-lucide="bell" class="w-5 h-5"></i>
+          </button>
+          <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+            <div class="w-9 h-9 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center">
+              FM
+            </div>
+            <div class="text-sm hidden sm:block">
+              <p class="font-semibold text-slate-700">GreenValley Farms</p>
+              <p class="text-xs text-slate-400">Verified Seller</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body -->
+      <main class="p-6 space-y-6">
+
+        <!-- KPI Metrics Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Sales</p>
+                <h3 class="text-2xl font-bold text-slate-800 mt-1">$48,250</h3>
+              </div>
+              <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+                <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+              </span>
+            </div>
+            <p class="text-xs text-emerald-600 font-medium mt-3 flex items-center gap-1">
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i> +12.4% vs last month
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Stock Available</p>
+                <h3 class="text-2xl font-bold text-slate-800 mt-1">14.2 Tons</h3>
+              </div>
+              <span class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+                <i data-lucide="wheat" class="w-5 h-5"></i>
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 font-medium mt-3">Across 8 crop categories</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pending Orders</p>
+                <h3 class="text-2xl font-bold text-slate-800 mt-1">28</h3>
+              </div>
+              <span class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+              </span>
+            </div>
+            <p class="text-xs text-blue-600 font-medium mt-3">12 ready for dispatch</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Avg. Crop Rate</p>
+                <h3 class="text-2xl font-bold text-slate-800 mt-1">$2.40 / kg</h3>
+              </div>
+              <span class="p-2 bg-purple-50 text-purple-600 rounded-lg">
+                <i data-lucide="line-chart" class="w-5 h-5"></i>
+              </span>
+            </div>
+            <p class="text-xs text-purple-600 font-medium mt-3">+4.1% market demand</p>
+          </div>
+        </div>
+
+        <!-- Charts & Market Rates Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+         
+          <!-- Market Price Trend Chart -->
+          <div class="lg:col-span-2 bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="font-bold text-slate-800">Crop Price Trends (Monthly)</h2>
+              <select class="text-xs bg-slate-100 border border-slate-200 rounded-md px-2 py-1 font-medium text-slate-600">
+                <option>Wheat</option>
+                <option>Organic Tomatoes</option>
+                <option>Soybeans</option>
+              </select>
+            </div>
+            <div class="h-64">
+              <canvas id="priceChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Live Commodity Prices -->
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h2 class="font-bold text-slate-800 mb-4">Live Market Rates</h2>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-lg bg-slate-50">
+                <div>
+                  <p class="font-semibold text-slate-800 text-sm">Hard Red Wheat</p>
+                  <p class="text-xs text-slate-400">Grade A Standard</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-sm text-slate-800">$0.32 / kg</p>
+                  <span class="text-xs font-medium text-emerald-600">+1.8%</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-lg bg-slate-50">
+                <div>
+                  <p class="font-semibold text-slate-800 text-sm">Organic Tomatoes</p>
+                  <p class="text-xs text-slate-400">Fresh Produce</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-sm text-slate-800">$1.85 / kg</p>
+                  <span class="text-xs font-medium text-rose-500">-0.5%</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-lg bg-slate-50">
+                <div>
+                  <p class="font-semibold text-slate-800 text-sm">Yellow Corn</p>
+                  <p class="text-xs text-slate-400">Bulk Grain</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-sm text-slate-800">$0.28 / kg</p>
+                  <span class="text-xs font-medium text-emerald-600">+3.2%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Marketplace Orders Table -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-slate-200 flex justify-between items-center">
+            <h2 class="font-bold text-slate-800">Recent Marketplace Transactions</h2>
+            <button class="text-xs font-semibold text-emerald-700 hover:underline">View All</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-600">
+              <thead class="bg-slate-50 text-xs uppercase font-semibold text-slate-400 border-b border-slate-200">
+                <tr>
+                  <th class="px-6 py-3">Order ID</th>
+                  <th class="px-6 py-3">Buyer</th>
+                  <th class="px-6 py-3">Crop Type</th>
+                  <th class="px-6 py-3">Quantity</th>
+                  <th class="px-6 py-3">Total Amount</th>
+                  <th class="px-6 py-3">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="px-6 py-4 font-mono text-xs font-semibold">#AG-8941</td>
+                  <td class="px-6 py-4 font-medium text-slate-800">AgroWholesale Co.</td>
+                  <td class="px-6 py-4">Organic Wheat</td>
+                  <td class="px-6 py-4">2,500 kg</td>
+                  <td class="px-6 py-4 font-semibold text-slate-800">$800.00</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800">Delivered</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-mono text-xs font-semibold">#AG-8942</td>
+                  <td class="px-6 py-4 font-medium text-slate-800">BioFoods Inc.</td>
+                  <td class="px-6 py-4">Soybeans</td>
+                  <td class="px-6 py-4">1,000 kg</td>
+                  <td class="px-6 py-4 font-semibold text-slate-800">$620.00</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">In Transit</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-mono text-xs font-semibold">#AG-8943</td>
+                  <td class="px-6 py-4 font-medium text-slate-800">Local Organics Market</td>
+                  <td class="px-6 py-4">Fresh Tomatoes</td>
+                  <td class="px-6 py-4">400 kg</td>
+                  <td class="px-6 py-4 font-semibold text-slate-800">$740.00</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Processing</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Render Price Trend Chart
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'Price per kg ($)',
+          data: [0.24, 0.26, 0.25, 0.29, 0.28, 0.31, 0.32],
+          borderColor: '#059669',
+          backgroundColor: 'rgba(5, 150, 105, 0.1)',
+          fill: true,
+          tension: 0.3,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { grid: { color: '#f1f5f9' } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
